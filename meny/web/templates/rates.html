@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Rates</title>
+</head>
+<body>
+    <h1>Rates</h1>
+    {% if value %}
+        <p>Conversion: {{ value }}</p>
+    {% endif %}
+    <form>
+        <label for="currency">Convert: </label>
+        <select id="currency_from" name="currency_from">
+            {% for currency in currencies %}
+                <option value="{{ currency.code }}">{{ currency.code }}</option>
+            {% endfor %}
+        </select>
+        <select id="currency_to" name="currency_to">
+            {% for currency in currencies %}
+                <option value="{{ currency.code }}">{{ currency.code }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" id="amount" name="amount" value="1">
+        <button type="submit">Get rate</button>
+    </form>
+</body>
+</html>
